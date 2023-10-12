@@ -28,6 +28,8 @@ server.post(
   async (req, res) => {
     // By default this function will iterate all the installation points and send an Adaptive Card
     // to every installation.
+    console.log(await bot.notification.installations());
+    console.log("Testing Bot on Cloud");
     for (const target of await bot.notification.installations()) {
       await target.sendAdaptiveCard(
         AdaptiveCards.declare<CardData>(notificationTemplate).render({
